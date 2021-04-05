@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Reg</title>
+</head>
+<body>
+<h3>Reg page</h3>
+<form th:action="@{/reg}" th:object="${newUser}" method="post">
+    <div><label> Enter username: <input type="text" th:field="*{username}"/> </label></div>
+    <div><label> Enter password: <input type="password" th:field="*{password}"/> </label></div>
+    <div><input type="submit" value="Reg"/></div>
+</form>
+</body>
+</html>
