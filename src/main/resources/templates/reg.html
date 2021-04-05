@@ -6,11 +6,20 @@
     <title>Reg</title>
 </head>
 <body>
-<h3>Reg page</h3>
+<header th:insert="fragments/_header"></header>
+
 <form th:action="@{/reg}" th:object="${newUser}" method="post">
-    <div><label> Enter username: <input type="text" th:field="*{username}"/> </label></div>
-    <div><label> Enter password: <input type="password" th:field="*{password}"/> </label></div>
-    <div><input type="submit" value="Reg"/></div>
+    <div class="mb-3">
+        <label th:for="*{username}" class="form-label">Username</label>
+        <input type="text" class="form-control" th:field="*{username}">
+    </div>
+    <div class="mb-3">
+        <label th:for="*{password}" class="form-label">Password</label>
+        <input type="password" class="form-control" th:field="*{password}" aria-describedby="passHelp">
+        <div id="passHelp" class="form-text">At least 4 symbols</div>
+    </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </body>
 </html>
