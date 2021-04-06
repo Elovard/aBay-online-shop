@@ -12,5 +12,7 @@ public class InMemoryUserStorage {
 
     public void addUser(User user){
         users.add(user);
+        System.out.println("user " + user.getUsername() + " has been successfully added");
+        System.out.println(users.toString());
     }
 }
