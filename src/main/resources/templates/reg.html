@@ -18,6 +18,14 @@
         <input type="password" class="form-control" th:field="*{password}" aria-describedby="passHelp">
         <div id="passHelp" class="form-text">At least 4 symbols</div>
     </div>
+    <div class="mb-3">
+        <label th:for="*{name}" class="form-label">Your Name</label>
+        <input type="text" class="form-control" th:field="*{name}">
+    </div>
+    <div class="mb-3">
+        <label th:for="*{mobilePhone}" class="form-label">Mobile Phone</label>
+        <input type="tel" class="form-control" th:field="*{mobilePhone}">
+    </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

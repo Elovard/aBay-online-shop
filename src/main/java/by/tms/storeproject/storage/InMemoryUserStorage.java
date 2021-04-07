@@ -8,11 +8,11 @@ import java.util.List;
 
 @Component
 public class InMemoryUserStorage {
-    private List<User> users = new ArrayList<>();
-
-    public void addUser(User user){
-        users.add(user);
-        System.out.println("user " + user.getUsername() + " has been successfully added");
-        System.out.println(users.toString());
-    }
+//    private List<User> users = new ArrayList<>();
+//
+//    public void addUser(User user){
+//        users.add(user);
+//        System.out.println("user " + user.getUsername() + " has been successfully added");
+//        System.out.println(users.toString());
+//    }
 }

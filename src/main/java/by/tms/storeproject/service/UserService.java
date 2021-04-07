@@ -1,17 +1,38 @@
 package by.tms.storeproject.service;
 
 import by.tms.storeproject.entity.User;
-import by.tms.storeproject.storage.InMemoryUserStorage;
+import by.tms.storeproject.storage.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     @Autowired
-    private InMemoryUserStorage inMemoryUserStorage;
+    private UserRepository userRepository;
 
-    public void saveUser(User user){
-        inMemoryUserStorage.addUser(user);
+    public void save(User user){
+        userRepository.save(user);
+    }
+
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> byUserName = userRepository.findUserByUsername(username);
+        if(byUserName.isPresent()){
+            User user = byUserName.get();
+            UserDetails userDetails = org.springframework.security.core.userdetails.User.builder()
+                    .username(user.getUsername())
+                    .password(user.getPassword())
+                    .authorities(user.getRoles())
+                    .build();
+            return userDetails;
+        }
+        throw new UsernameNotFoundException("User " + username + " not found!");
     }
 }
