@@ -15,16 +15,17 @@ import java.util.logging.Logger;
 
 @Controller
 @RequestMapping(path = "/")
-public class AuthorizationController {
+public class RegAndAuthController {
 
     @Autowired
     private UserService userService;
 
-    Logger log = Logger.getLogger(AuthorizationController.class.getName());
+    Logger log = Logger.getLogger(RegAndAuthController.class.getName());
 
     @GetMapping(path = "/reg")
     public ModelAndView getRegPage(ModelAndView modelAndView){
         modelAndView.addObject("newUser", new UserRegModel());
+        log.info("invoked get method of reg page");
         modelAndView.setViewName("reg");
         return modelAndView;
     }
@@ -38,7 +39,7 @@ public class AuthorizationController {
         user.setName(userRegModel.getName());
         userService.save(user);
         modelAndView.setViewName("/login");
-        log.info("used has been created - postReg");
+        log.info("user " + user.getUsername() + " has been created - postReg");
         return modelAndView;
 
     }
