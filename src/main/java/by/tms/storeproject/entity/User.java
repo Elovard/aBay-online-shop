@@ -28,6 +28,6 @@ public class User {
 
     @ElementCollection
     @LazyCollection(value = LazyCollectionOption.FALSE)
-    private List<UserRole> roles;
+    private List<UserRole> userRoles;
 
 }

@@ -12,5 +12,4 @@ public class UserRegModel {
     private String username;
     private String password;
     private String mobilePhone;
-    private String name;
 }

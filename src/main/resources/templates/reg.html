@@ -8,7 +8,7 @@
 <body>
 <header th:insert="fragments/_header"></header>
 
-<form th:action="@{/reg}" th:object="${newUser}" method="post">
+<form th:action="@{/user/reg}" th:object="${newUser}" method="post">
     <div class="mb-3">
         <label th:for="*{username}" class="form-label">Username</label>
         <input type="text" class="form-control" th:field="*{username}">
@@ -17,10 +17,6 @@
         <label th:for="*{password}" class="form-label">Password</label>
         <input type="password" class="form-control" th:field="*{password}" aria-describedby="passHelp">
         <div id="passHelp" class="form-text">At least 4 symbols</div>
-    </div>
-    <div class="mb-3">
-        <label th:for="*{name}" class="form-label">Your Name</label>
-        <input type="text" class="form-control" th:field="*{name}">
     </div>
     <div class="mb-3">
         <label th:for="*{mobilePhone}" class="form-label">Mobile Phone</label>

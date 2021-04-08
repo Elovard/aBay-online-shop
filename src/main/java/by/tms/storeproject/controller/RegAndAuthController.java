@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.logging.Logger;
 
 @Controller
-@RequestMapping(path = "/")
+@RequestMapping(path = "/user")
 public class RegAndAuthController {
 
     @Autowired
@@ -32,15 +32,21 @@ public class RegAndAuthController {
 
     @PostMapping(path = "/reg")
     public ModelAndView postRegPage(@ModelAttribute("newUser")UserRegModel userRegModel, ModelAndView modelAndView){
-        User user = new User ();
+        User user = new User();
         user.setUsername(userRegModel.getUsername());
         user.setPassword(userRegModel.getPassword());
         user.setMobilePhone(userRegModel.getMobilePhone());
-        user.setName(userRegModel.getName());
         userService.save(user);
-        modelAndView.setViewName("/login");
+        modelAndView.setViewName("redirect:/user/auth");
         log.info("user " + user.getUsername() + " has been created - postReg");
         return modelAndView;
 
+    }
+
+    @GetMapping(path = "/auth")
+    public ModelAndView getAuthPage(ModelAndView modelAndView){
+        log.info("invoked get method of auth page");
+        modelAndView.setViewName("auth");
+        return modelAndView;
     }
 }

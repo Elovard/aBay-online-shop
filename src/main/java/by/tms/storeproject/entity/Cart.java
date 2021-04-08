@@ -13,8 +13,6 @@ public class Cart {
     @Autowired
     private CartRepository cartRepository;
 
-//    private List<Item> listOfItems = new ArrayList<>();
-
     private void addItemToCart(Item item){
         cartRepository.save(item);
     }
