@@ -11,16 +11,19 @@
 <div class="container">
     <div th:if="${not #lists.isEmpty(items)}">
         <h2>List of Items:</h2>
-        <table class="table table-striped">
+        <table class="table table-striped" style="">
             <tr>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
+                <th></th>
+                <th></th>
             </tr>
             <tr th:each="item : ${items}">
                 <td th:text="${item.itemName}"></td>
                 <td th:text="${item.itemDesc}"></td>
                 <td th:text="${item.itemPrice}"></td>
+                <td><img th:src="${item.picLink}" height="80" width="80"></td>
                 <td><a th:href="@{/store/item/view/{itemId}(itemId=${item.itemId})}">Take a look</a></td>
                 <td>
                 </td>

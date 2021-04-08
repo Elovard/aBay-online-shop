@@ -24,6 +24,8 @@ public class Item {
     private String itemDesc;
     private float itemPrice;
 
+    private String picLink;
+
 //    @ElementCollection
 //    @LazyCollection(value = LazyCollectionOption.FALSE)
 //    private List<ItemCategory> itemCategoryList;
