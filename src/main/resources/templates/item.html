@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:insert="fragments/_header"></header>
+<div th:object="${item}">
+    <a th:text="${item.itemName}"></a>
+    <a th:text="${item.itemDesc}"></a>
+    <a th:text="${item.itemPrice}"></a>
+    <a>Category</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>aBay Main</title>
+</head>
+<body>
+<header th:insert="fragments/_header"></header>
+<p><h2>Today we have in stock...</h2></p>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(items)}">
+        <h2>List of Items:</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.itemName}"></td>
+                <td th:text="${item.itemDesc}"></td>
+                <td th:text="${item.itemPrice}"></td>
+                <td><a th:href="@{/store/item/view/{itemId}(itemId=${item.itemId})}">Take a look</a></td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
